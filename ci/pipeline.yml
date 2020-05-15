@@ -1,0 +1,25 @@
+---
+resources:
+  - name: crawler
+    type: git
+    source:
+      uri: https://github.com/pjcalvo/scrapy_crawler.git
+      branch: master
+
+jobs:
+  - name: tabernacle-choir
+    public: true
+    serial: true
+    plan:
+      - get: crawler
+        trigger: true
+      - task: run-crawler-tabernacle-choir
+        config:
+          inputs:
+            - name: crawler
+          platform: linux
+          image_resource:
+            type: docker-image
+            source: {repository: python}
+          run:
+            path: crawler/ci/scripts/tabernacle.sh      

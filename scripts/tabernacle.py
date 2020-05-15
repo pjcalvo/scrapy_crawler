@@ -15,8 +15,8 @@ class MyItems(scrapy.Item):
 
 
 class MySpider(scrapy.Spider):
-    name = settings.NAME
-    start_urls = settings.START_URLS
+    name = settings.TABERNACLE_NAME
+    start_urls = settings.TABERNACLE_START_URLS
     handle_httpstatus_list = [404,500]
     handle_httpstatus_all = True
     custom_settings = {
@@ -71,7 +71,7 @@ class MySpider(scrapy.Spider):
         yield item
 
     def isAllowedUrl(self, url):
-        for s in settings.ALLOWED_DOMAINS:
+        for s in settings.TABERNACLE_ALLOWED_DOMAINS:
             if url.startswith(s):
                 return True
         return False
