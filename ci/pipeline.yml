@@ -22,4 +22,7 @@ jobs:
             type: docker-image
             source: {repository: python, tag: 3-slim}
           run:
-            path: crawler/ci/scripts/tabernacle.sh
+            dir: crawler
+            path: ci/scripts/tabernacle.sh
+
+
