@@ -1,6 +1,6 @@
 #!/bin/bash
 # setup environment
-ci/scripts/setup.sh
+setup.sh
 
 #prepare var
 
