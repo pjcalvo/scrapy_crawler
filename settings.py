@@ -12,9 +12,9 @@ DISALLOWED_DOMAINS = ['www.adobe.com']
 
 
 #tabernacle
-TABERNACLE_NAME = 'scrapy'
-TABERNACLE_ALLOWED_DOMAINS = ['http://www.thetabernaclechoir.org','https://www.thetabernaclechoir.org']
-TABERNACLE_START_URLS = ['https://www.thetabernaclechoir.org/music-spoken-word/history-of-music-and-the-spoken-word.html','https://www.thetabernaclechoir.org/music-spoken-word/history-of-music-and-the-spoken-word.html']
+NAME = 'tabernacle'
+ALLOWED_DOMAINS = ['youdidntspecifydomains']
+START_URLS = ['starturl.com']
 
 #redirects
 REDIRECTS_BASE_URL = 'https://kornferry.com'

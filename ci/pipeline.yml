@@ -1,28 +1,41 @@
 ---
 resources:
-  - name: crawler
+  - name: app-code
     type: git
     source:
       uri: https://github.com/pjcalvo/scrapy_crawler.git
       branch: master
+
+  - name: scrapy-image
+    type: docker-image
+    source:
+      email: pjcalvov@gmail.com
+      username: pjcalvo
+      password: minovia
+      repository: pjcalvo/scrapy
 
 jobs:
   - name: tabernacle-choir
     public: true
     serial: true
     plan:
-      - get: crawler
+      - get: app-code
         trigger: true
-      - task: run-crawler-tabernacle-choir
+      - put: scrapy-image
+        params: 
+          build: app-code/ci 
+      - task: run
         config:
-          inputs:
-            - name: crawler
           platform: linux
           image_resource:
-            type: docker-image
-            source: {repository: python, tag: 3-slim}
+            type: scrapy-image
+            source:
+              repository: pjcalvo/scrapy
           run:
-            dir: crawler
-            path: ci/scripts/tabernacle.sh
+            path: sh
+        params:
+          DYNACONF_START_URLS: '@json ["http://google.com"]'
+        
+
 
 

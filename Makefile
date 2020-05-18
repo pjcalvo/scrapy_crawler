@@ -11,7 +11,7 @@ check:
 
 spider:
 	${MKDIR_P} ${OUT_DIR}
-	scrapy runspider scripts/spider.py -t $(FILE_TYPE) -o - > ${OUT_DIR}/spider-$(OUT_FILE)
+	scrapy runspider scripts/link_checker.py -t $(FILE_TYPE) -o - > ${OUT_DIR}/spider-$(OUT_FILE)
 
 redirect:
 	python scripts/redirects.py
