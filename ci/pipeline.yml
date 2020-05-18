@@ -24,7 +24,7 @@ jobs:
       - put: scrapy-image
         inputs: detect
         params:
-          build: app-code/ci
+          build: app-code
       - task: run
         config:
           platform: linux
