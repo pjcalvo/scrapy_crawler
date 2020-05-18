@@ -1,8 +1,8 @@
 FROM python:3.7
-WORKDIR /usr/src/app
+WORKDIR /usr/src/app/app-code
 
 COPY . .
-RUN pip3 install -r requirements.txt
+RUN pip3 install -r app-code/requirements.txt
 CMD ["make","spider"]
 
 # environment variables

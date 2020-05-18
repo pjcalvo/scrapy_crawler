@@ -22,8 +22,9 @@ jobs:
       - get: app-code
         trigger: true
       - put: scrapy-image
-        params: 
-          build: app-code/ci 
+        inputs: detect
+        params:
+          build: app-code/ci
       - task: run
         config:
           platform: linux
@@ -35,7 +36,3 @@ jobs:
             path: sh
         params:
           DYNACONF_START_URLS: '@json ["http://google.com"]'
-        
-
-
-
